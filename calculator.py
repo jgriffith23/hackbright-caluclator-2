@@ -16,15 +16,15 @@ def calculator():
 
         try:
             operation = user_input[0]
-            operand1 = int(user_input[1])
+            operand1 = float(user_input[1])
         except (IndexError, ValueError):
             if (operation != "q"):
                 print "Invalid input. Check that your operator and operands are correct, and try again.\n"
             continue
 
         if len(user_input) == 3:
-            operand2 = int(user_input[2])
-            
+            operand2 = float(user_input[2])
+
         if operation == "+":
             result = add(operand1, operand2)
         elif operation == "-":
@@ -44,7 +44,7 @@ def calculator():
         else:
             entered_string = raw_input("I don't understand. Please try again.\n>> ")
 
-        print result
+        print "The result is: {:.2f}.".format(result)
     return
 
 calculator()

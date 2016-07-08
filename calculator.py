@@ -13,18 +13,18 @@ def calculator():
     while (entered_string != "q"):
         entered_string = raw_input(">> ")
         user_input = entered_string.split(" ")
-        
-        operation = user_input[0]
-        operand1 = int(user_input[1])
+
+        try:
+            operation = user_input[0]
+            operand1 = int(user_input[1])
+        except (IndexError, ValueError):
+            if (operation != "q"):
+                print "Invalid input. Check that your operator and operands are correct, and try again.\n"
+            continue
 
         if len(user_input) == 3:
             operand2 = int(user_input[2])
-        #operation, operand1, operand2 = user_input
-
-        result = None
-
-        # if operation.lower() == "q":
-        #     return 
+            
         if operation == "+":
             result = add(operand1, operand2)
         elif operation == "-":
